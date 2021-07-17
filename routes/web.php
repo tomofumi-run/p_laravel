@@ -15,3 +15,4 @@ use App\Http\Controllers\BookController; //namespace部分
 */
 
 Route::get('/',[BookController::class, 'index'] ); //ルーティングで呼び出す
+Route::get('/books/{id}',[BookController::class, 'show'] );

@@ -6,14 +6,20 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    private $books = [
+        'Title A',
+        'Title B',
+        'Title C',
+    ];
     public function index()
     { // web.phpにあったfunctionを移動させた
-        $posts = [
-            'Book A',
-            'Book B',
-            'Book C',
-        ];
-        return view('index')
-            ->with(['books' => $posts]);
+        return view('index') // indexというアクションでルーティングと連携
+            ->with(['books' => $this->books]); //privateなのでthisのposts
+    }
+
+    public function show($id)
+    {
+        return view('books.show')
+            ->with(['book' => $this->books[$id]]);
     }
 }
