@@ -14,5 +14,8 @@ use App\Http\Controllers\BookController; //namespace部分
 |
 */
 
-Route::get('/',[BookController::class, 'index'] ); //ルーティングで呼び出す
-Route::get('/books/{id}',[BookController::class, 'show'] );
+Route::get('/',[BookController::class, 'index'] )
+    ->name('books.index'); // ルーティングに名前をつける。viewでリンク先を指定できる。
+
+Route::get('/books/{id}',[BookController::class, 'show'] )
+    ->name('books.show');
