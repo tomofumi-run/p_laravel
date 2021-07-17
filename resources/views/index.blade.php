@@ -1,4 +1,7 @@
 <x-layout>
+    <x-slot name="title">
+        Bookers | Laravel
+    </x-slot>
     <h1>Laravel Bookers</h1>
         <p>Laravelを使ったBookersです</p>
         <ul>
