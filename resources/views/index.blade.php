@@ -1,3 +1,9 @@
+<?php
+    // var_dump($books);
+    // exit;
+    dd($books); // dump and die みやすくなる
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
