@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController; //namespace部分
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $posts = [
-        'Book A',
-        'Book B',
-        'Book C',
-    ];
-    return view('index')
-        ->with(['books' => $posts]);
-});
+Route::get('/',[BookController::class, 'index'] ); //ルーティングで呼び出す

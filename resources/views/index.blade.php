@@ -1,9 +1,3 @@
-<?php
-    // var_dump($books);
-    // exit;
-    dd($books); // dump and die みやすくなる
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -16,9 +10,11 @@
         <h1>Laravel Bookers</h1>
         <p>Laravelを使ったBookersです</p>
         <ul>
-            <li>Book1</li>
-            <li>Book2</li>
-            <li>Book3</li>
+            @forelse ($books as $book)
+                <li>{{ $book }}</li>
+            @empty
+                <li>No posts yet!</li>
+            @endforelse
         </ul>
     </div>
 </body>
