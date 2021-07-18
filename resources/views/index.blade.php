@@ -5,10 +5,10 @@
     <h1>Laravel Bookers</h1>
         <p>Laravelを使ったBookersです</p>
         <ul>
-            @forelse ($books as $index => $book)
+            @forelse ($books as $book)
                 <li>
-                    <a href="{{ route('books.show', $index) }}">
-                        {{ $book }}
+                    <a href="{{ route('books.show', $book->id) }}">
+                        {{ $book->title }}
                     </a>
                 </li>
             @empty
