@@ -7,7 +7,7 @@
         <ul>
             @forelse ($books as $book)
                 <li>
-                    <a href="{{ route('books.show', $book->id) }}">
+                    <a href="{{ route('books.show', $book) }}">
                         {{ $book->title }}
                     </a>
                 </li>

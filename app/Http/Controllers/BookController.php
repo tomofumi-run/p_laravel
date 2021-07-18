@@ -16,9 +16,10 @@ class BookController extends Controller
             ->with(['books' => $books]); //privateなのでthisのposts
     }
 
-    public function show($id)
+    public function show(Book $book) //指定されたidに対応
     {
+        // $book = Book::findOrFail($id); //Errorページへの遷移も行う
         return view('books.show')
-            ->with(['book' => $this->books[$id]]);
+            ->with(['book' => $book]);
     }
 }

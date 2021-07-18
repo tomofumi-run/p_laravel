@@ -17,5 +17,5 @@ use App\Http\Controllers\BookController; //namespace部分
 Route::get('/',[BookController::class, 'index'] )
     ->name('books.index'); // ルーティングに名前をつける。viewでリンク先を指定できる。
 
-Route::get('/books/{id}',[BookController::class, 'show'] )
+Route::get('/books/{book}',[BookController::class, 'show'] ) //ルーティングを変更することでImplicit Bindingが行える。
     ->name('books.show');
