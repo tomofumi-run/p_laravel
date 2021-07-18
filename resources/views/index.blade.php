@@ -2,7 +2,10 @@
     <x-slot name="title">
         Bookers | Laravel
     </x-slot>
-    <h1>Laravel Bookers</h1>
+    <h1>
+        <span>Laravel Bookers</span>
+        <a href="{{ route('books.create') }}">[新規投稿]</a>
+    </h1>
         <p>Laravelを使ったBookersです</p>
         <ul>
             @forelse ($books as $book)

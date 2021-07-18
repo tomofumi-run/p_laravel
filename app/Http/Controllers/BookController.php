@@ -22,4 +22,9 @@ class BookController extends Controller
         return view('books.show')
             ->with(['book' => $book]);
     }
+
+    public function create()
+    {
+        return view('books.create');
+    }
 }
