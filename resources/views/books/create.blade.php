@@ -9,14 +9,20 @@
 
     <form action="" method="post">
         @csrf {{-- トークン作成--}}
-        <label>
-            Title
-            <input type="text" name="title">
-        </label>
-        <label>
-            Body
-            <textarea name="body"></textarea>
-        </label>
-        <button>投稿する</button>
+        <div class="form-group">
+            <label>
+                Title
+                <input type="text" name="title">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Body
+                <textarea name="body"></textarea>
+            </label>
+        </div>
+        <div class="form-button">
+            <button>投稿する</button>
+        </div>
     </form>
 </x-layout>
