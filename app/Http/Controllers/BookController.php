@@ -27,4 +27,15 @@ class BookController extends Controller
     {
         return view('books.create');
     }
+
+    public function store(Request $request) //Request型をrequestで受け取る
+    {
+        $book = new Book();
+        $book->title = $request->title;
+        $book->body = $request->body;
+        $book->save();
+
+        return redirect()
+            ->route('books.index');
+    }
 }

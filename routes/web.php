@@ -22,4 +22,7 @@ Route::get('/books/{book}',[BookController::class, 'show'] ) //ルーティン�
     ->where('book', '[0-9]+'); //0~9の数値しか受け付けない
 
 Route::get('/books/create',[BookController::class, 'create'] ) //where文で0-9以外の文字列の場合に発火する
-    ->name('books.');
+    ->name('books.create');
+    
+Route::post('/books/store',[BookController::class, 'store'] )
+    ->name('books.store');

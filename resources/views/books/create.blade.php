@@ -7,7 +7,7 @@
     </div>
     <h1>新規投稿ページ</h1>
 
-    <form action="" method="post">
+    <form action="{{ route('books.store') }}" method="post">
         @csrf {{-- トークン作成--}}
         <div class="form-group">
             <label>
