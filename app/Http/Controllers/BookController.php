@@ -30,6 +30,11 @@ class BookController extends Controller
 
     public function store(Request $request) //Request型をrequestで受け取る
     {
+        $request->validate([ //投稿のバリデーション
+            'title' => 'required|min:3', // 3文字以上
+            'body' => 'required' // 空欄なし
+        ]);
+
         $book = new Book();
         $book->title = $request->title;
         $book->body = $request->body;
