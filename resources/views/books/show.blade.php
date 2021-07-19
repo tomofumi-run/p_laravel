@@ -8,6 +8,9 @@
     <h1>
         <span>{{ $book->title }}</span>
         <a href="{{ route('books.edit', $book) }}">編集する</a>
+        <form action="post" action="">
+            <button class="btn">削除する</button>
+        </form>
     </h1>
     <p>{!! nl2br(e($book->body)) !!}</p> <!--e()でHTML文字をエスケープ-->
 </x-layout>
