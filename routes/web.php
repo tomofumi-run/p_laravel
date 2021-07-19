@@ -30,3 +30,7 @@ Route::post('/books/store',[BookController::class, 'store'] )
 Route::get('/books/{book}/edit',[BookController::class, 'edit'] )
     ->name('books.edit')
     ->where('book', '[0-9]+');
+
+Route::patch('/books/{book}/update',[BookController::class, 'update'] )
+    ->name('books.update')
+    ->where('book', '[0-9]+');
