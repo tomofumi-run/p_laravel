@@ -33,6 +33,10 @@ class BookController extends Controller
         $request->validate([ //投稿のバリデーション
             'title' => 'required|min:3', // 3文字以上
             'body' => 'required' // 空欄なし
+        ],[
+            'title.required' => 'タイトルは必須です', //エラーメッセージの指定
+            'title.min' => ':min 文字以上入力してください',
+            'body.required' => 'タイトルは必須です',
         ]);
 
         $book = new Book();
