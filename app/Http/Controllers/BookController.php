@@ -54,4 +54,23 @@ class BookController extends Controller
         return view('books.edit')
             ->with(['book' => $book]);
     }
+
+    public function update(Request $request, Book $book)
+    {
+        $request->validate([
+            'title' => 'required|min:3',
+            'body' => 'required',
+        ],[
+            'title.required' => 'タイトルは必須です',
+            'title.min' => ':min 文字以上入力してください',
+            'body.required' => 'タイトルは必須です',
+        ]);
+
+        $book->title = $request->title;
+        $book->body = $request->body;
+        $book->save();
+
+        return redirect()
+            ->route('books.show', $book);
+    }
 }
