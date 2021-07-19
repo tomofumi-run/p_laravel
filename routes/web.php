@@ -34,3 +34,7 @@ Route::get('/books/{book}/edit',[BookController::class, 'edit'] )
 Route::patch('/books/{book}/update',[BookController::class, 'update'] )
     ->name('books.update')
     ->where('book', '[0-9]+');
+
+Route::delete('/books/{book}/destroy',[BookController::class, 'destroy'])
+    ->name('books.destroy')
+    ->where('book', '[0-9]+');
