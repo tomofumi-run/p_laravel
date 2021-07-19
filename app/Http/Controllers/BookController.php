@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book; //MySQLからのデータを受け取るためのネームスペース
+use App\Http\Requests\BookRequest;
 
 class BookController extends Controller
 {
@@ -28,17 +29,8 @@ class BookController extends Controller
         return view('books.create');
     }
 
-    public function store(Request $request) //Request型をrequestで受け取る
+    public function store(BookRequest $request) //Request型をrequestで受け取る
     {
-        $request->validate([ //投稿のバリデーション
-            'title' => 'required|min:3', // 3文字以上
-            'body' => 'required' // 空欄なし
-        ],[
-            'title.required' => 'タイトルは必須です', //エラーメッセージの指定
-            'title.min' => ':min 文字以上入力してください',
-            'body.required' => 'タイトルは必須です',
-        ]);
-
         $book = new Book();
         $book->title = $request->title;
         $book->body = $request->body;
@@ -55,17 +47,8 @@ class BookController extends Controller
             ->with(['book' => $book]);
     }
 
-    public function update(Request $request, Book $book)
+    public function update(BookRequest $request, Book $book)
     {
-        $request->validate([
-            'title' => 'required|min:3',
-            'body' => 'required',
-        ],[
-            'title.required' => 'タイトルは必須です',
-            'title.min' => ':min 文字以上入力してください',
-            'body.required' => 'タイトルは必須です',
-        ]);
-
         $book->title = $request->title;
         $book->body = $request->body;
         $book->save();
