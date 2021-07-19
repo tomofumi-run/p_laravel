@@ -47,4 +47,11 @@ class BookController extends Controller
         return redirect()
             ->route('books.index');
     }
+
+    public function edit(Book $book) //指定されたidに対応
+    {
+        // $book = Book::findOrFail($id); //Errorページへの遷移も行う
+        return view('books.edit')
+            ->with(['book' => $book]);
+    }
 }

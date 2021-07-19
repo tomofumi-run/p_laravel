@@ -23,6 +23,10 @@ Route::get('/books/{book}',[BookController::class, 'show'] ) //ルーティン�
 
 Route::get('/books/create',[BookController::class, 'create'] ) //where文で0-9以外の文字列の場合に発火する
     ->name('books.create');
-    
+
 Route::post('/books/store',[BookController::class, 'store'] )
     ->name('books.store');
+
+Route::get('/books/{book}/edit',[BookController::class, 'edit'] )
+    ->name('books.edit')
+    ->where('book', '[0-9]+');
