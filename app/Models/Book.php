@@ -13,4 +13,9 @@ class Book extends Model
         'title',
         'body',
     ];
+
+    // $book->comments
+    public function comments() {
+        return $this->hasMany(Comment::class); //bookに対してコメントは複数存在する
+    }
 }
