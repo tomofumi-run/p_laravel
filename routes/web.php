@@ -43,3 +43,7 @@ Route::delete('/books/{book}/destroy',[BookController::class, 'destroy'])
 Route::post('/books/{book}/comments',[CommentController::class, 'store'])
     ->name('comments.store')
     ->where('comment', '[0-9]+');
+
+Route::delete('/comments/{comment}/destroy',[CommentController::class, 'destroy'])
+    ->name('comments.destroy')
+    ->where('comment', '[0-9]+');

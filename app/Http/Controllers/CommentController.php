@@ -20,4 +20,11 @@ class CommentController extends Controller
         return redirect()
             ->route('books.show', $book);
     }
+
+    public function destroy(Comment $comment) {
+        $comment->delete();
+
+        return redirect()
+            ->route('books.show', $comment->book);
+    }
 }

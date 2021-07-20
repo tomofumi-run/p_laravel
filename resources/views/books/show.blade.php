@@ -28,6 +28,11 @@
         @foreach($book->comments()->latest()->get() as $comment) <!---後順--->
             <li>
                 {{ $comment->body }}
+                <form method="post" action="{{ route('comments.destroy', $comment) }}" class="delete-comment">
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn">[X]</button>
+                </form>
             </li>
         @endforeach
     </ul>
