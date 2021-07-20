@@ -25,7 +25,7 @@
                 <button>コメント</button>
             </form>
         </li>
-        @foreach($book->comments as $comment)
+        @foreach($book->comments()->latest()->get() as $comment) <!---後順--->
             <li>
                 {{ $comment->body }}
             </li>
