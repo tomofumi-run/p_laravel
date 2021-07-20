@@ -16,6 +16,22 @@
     </h1>
     <p>{!! nl2br(e($book->body)) !!}</p> <!--e()でHTML文字をエスケープ-->
 
+    <h3>コメント</h3>
+    <ul>
+        <li>
+            <form method="post" class="comment-form" action="{{ route('comments.store', $book) }}">
+                @csrf
+                <input type="text" name="body">
+                <button>コメント</button>
+            </form>
+        </li>
+        @foreach($book->comments as $comment)
+            <li>
+                {{ $comment->body }}
+            </li>
+        @endforeach
+    </ul>
+
     <script>
         'use strict';
         {
