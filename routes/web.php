@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController; //namespace部分
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,7 @@ Route::patch('/books/{book}/update',[BookController::class, 'update'] )
 Route::delete('/books/{book}/destroy',[BookController::class, 'destroy'])
     ->name('books.destroy')
     ->where('book', '[0-9]+');
+
+Route::post('/books/{book}/comments',[CommentController::class, 'store'])
+    ->name('comments.store')
+    ->where('comment', '[0-9]+');
