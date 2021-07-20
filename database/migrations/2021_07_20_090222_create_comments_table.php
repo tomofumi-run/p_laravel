@@ -15,7 +15,14 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('post_id');
+            $table->string('body');
             $table->timestamps();
+            $table
+                ->foreign('post_id') // 存在しないidが入らないように
+                ->references('id') //postのidと関連づける
+                ->on('posts')
+                ->onDelete('cascade'); // postが削除されたらcommentも削除
         });
     }
 
