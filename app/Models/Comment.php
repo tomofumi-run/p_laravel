@@ -13,4 +13,9 @@ class Comment extends Model
         'book_id',
         'body',
     ];
+
+    // $comment->book
+    public function book() {
+        return $this->belongsTo(Book::class);
+    }
 }
