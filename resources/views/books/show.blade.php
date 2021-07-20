@@ -48,6 +48,17 @@
 
                 e.target.submit();
             });
+
+            document.querySelectorAll('.delete-comment').forEach(form => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+
+                    if(!confirm('本当に削除しますか？')) {
+                        return;
+                    }
+                    form.submit();
+                })
+            })
         }
     </script>
 </x-layout>
