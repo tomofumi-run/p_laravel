@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    protected $fillable = [ // 登録更新するカラムを設定する
+        'book_id',
+        'body',
+    ];
 }
